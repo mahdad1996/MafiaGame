@@ -49,7 +49,7 @@ public class Main {
 
 
 
-            
+
 
         }
 
@@ -79,59 +79,5 @@ public class Main {
     }
 }
 
-
-
-abstract class Person {
-    private boolean isAlive = true;
-    private String talk;
-    private int numberOfVotes;
-
-    public int getNumberOfVotes() {
-        return numberOfVotes;
-    }
-
-    public void setNumberOfVotes(int numberOfVotes) {
-        this.numberOfVotes = numberOfVotes;
-    }
-
-    public boolean isAlive() {
-        return isAlive;
-    }
-
-    public void setAlive(boolean alive) {
-        isAlive = alive;
-    }
-
-    abstract public void vote();
-
-}
-
-    class Citizen extends Person{
-        @Override
-        public void vote() {
-
-        }
-    }
-
-        class Doctor extends Citizen{}
-        class Sniper extends Citizen{}
-        class Detective extends Citizen{}
-
-    class Mafia extends Person{
-        @Override
-        public void vote() {
-
-
-            int citizenIndexToVote = new Random().nextInt(15);
-            while (RolesSource.citizens.get(citizenIndexToVote).isAlive() == false ){
-                citizenIndexToVote = new Random().nextInt(15);
-            }
-            Citizen selectedCitizen = RolesSource.citizens.get(citizenIndexToVote);
-            selectedCitizen.setNumberOfVotes(selectedCitizen.getNumberOfVotes()+1);
-        }
-    }
-
-        class  GodFather extends Mafia{}
-        class Natasha extends Mafia{}
 
 
